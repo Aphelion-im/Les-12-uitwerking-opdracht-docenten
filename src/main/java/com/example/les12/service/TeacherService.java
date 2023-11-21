@@ -52,8 +52,6 @@ public class TeacherService {
         return teacher.getId();
 //        teacherDto.id = teacher.getId();
 //        return teacherDto; Geeft com.example.les12.dto.TeacherDto@2a61bf3f in Postman
-
-
     }
 
     // Uit repo: https://github.com/robertjanelias/les12opdracht/blob/main/src/main/java/com/example/les11model/service/TeacherService.java
