@@ -56,7 +56,6 @@ public class TeacherService {
 
     }
 
-
     // Uit repo: https://github.com/robertjanelias/les12opdracht/blob/main/src/main/java/com/example/les11model/service/TeacherService.java
     public List<TeacherDto> getTeachers() {
         List<Teacher> teachers = teacherRepository.findAll(); // Er stond, met foutmelding: List<Teacher> teachers = repos.findAll();
