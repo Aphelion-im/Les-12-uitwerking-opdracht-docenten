@@ -7,6 +7,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "teachers")
 public class Teacher {
+    // Alle Model velden op private
+    // Alle Dto velden op public
     @Id
     @GeneratedValue
     private Long id;

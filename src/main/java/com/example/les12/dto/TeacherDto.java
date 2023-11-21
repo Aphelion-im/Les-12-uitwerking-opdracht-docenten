@@ -8,6 +8,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
 public class TeacherDto {
+    // Alles op public!
     public Long id;
 
     @NotBlank(message = "leeg") // Deze validatie velden werken waarschijnlijk samen met @Valid
