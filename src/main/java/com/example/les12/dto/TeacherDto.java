@@ -13,7 +13,7 @@ public class TeacherDto {
     @NotBlank(message = "leeg") // Deze validatie velden werken waarschijnlijk samen met @Valid
     public String firstName;
 
-    @Size(min=2,max=30, message = "Size must be between 2 and 30 characters") // Bericht in het Engels!
+    @Size(min = 2, max = 30, message = "Size must be between 2 and 30 characters") // Bericht in het Engels!
     public String lastName;
 
     // Het geeft geen melding als bijvoorbeeld jaartal niet goed is ingevoerd
@@ -22,6 +22,6 @@ public class TeacherDto {
     public LocalDate dob;
 
     @Min(0)
-    @Max(100_000)
+    @Max(value = 100_000, message = "Maximum allowed value is: 100.000")
     public int salary;
 }

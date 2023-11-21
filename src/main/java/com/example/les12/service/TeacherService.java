@@ -24,13 +24,14 @@ public class TeacherService {
 
     // Moet eigenlijk met een Optional
     public TeacherDto getTeacher(Long id) {
-        Teacher t = teacherRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Teacher not found"));
+        Teacher teacher = teacherRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Teacher not found"));
 
         TeacherDto teacherDto = new TeacherDto();
-        teacherDto.id = t.getId();
-        teacherDto.firstName = t.getFirstName();
-        teacherDto.lastName = t.getLastName();
-        teacherDto.dob = t.getDob();
+        teacherDto.id = teacher.getId();
+        teacherDto.firstName = teacher.getFirstName();
+        teacherDto.lastName = teacher.getLastName();
+        teacherDto.dob = teacher.getDob();
+        teacherDto.salary = teacher.getSalary();
 
         return teacherDto;
     }
@@ -46,6 +47,7 @@ public class TeacherService {
         teacher.setFirstName(teacherDto.firstName);
         teacher.setLastName(teacherDto.lastName);
         teacher.setDob(teacherDto.dob);
+        teacher.setSalary(teacherDto.salary);
         teacherRepository.save(teacher);
         return teacher.getId();
 //        teacherDto.id = teacher.getId();
@@ -59,12 +61,13 @@ public class TeacherService {
     public List<TeacherDto> getTeachers() {
         List<Teacher> teachers = teacherRepository.findAll(); // Er stond, met foutmelding: List<Teacher> teachers = repos.findAll();
         List<TeacherDto> teacherDtos = new ArrayList<>();
-        for (Teacher t : teachers) {
+        for (Teacher teacher : teachers) {
             TeacherDto tdto = new TeacherDto();
-            tdto.id = t.getId();
-            tdto.dob = t.getDob();
-            tdto.firstName = t.getFirstName();
-            tdto.lastName = t.getLastName();
+            tdto.id = teacher.getId();
+            tdto.dob = teacher.getDob();
+            tdto.firstName = teacher.getFirstName();
+            tdto.lastName = teacher.getLastName();
+            tdto.salary = teacher.getSalary();
             teacherDtos.add(tdto);
         }
         return teacherDtos;
